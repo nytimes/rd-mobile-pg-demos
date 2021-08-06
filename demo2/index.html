@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sketchfab Viewer API example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>
+  <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.10.1.js"></script>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      font-weight: 100;
+      font-family: Helvetica;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 640px;
+      margin: 4rem auto;
+      box-sizing: border-box;
+      padding: 0 2rem;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      margin-top: 2rem;
+      line-height: 1.2;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .back {
+      color: inherit;
+      text-decoration: none;
+      margin: 2rem;
+      display: block;
+    }
+
+
+    .scene {
+      position: relative;
+    }
+
+    .iframe-wrapper {
+      width: 100vw;
+      height: 100vh;
+      border: 0;
+      position: sticky;
+      top: 0;
+      z-index: -1;
+    }
+
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: 0;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 2rem;
+      font-family: sans-serif;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .caption h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .caption p {
+      line-height: 1.5;
+    }
+
+    .scroller {
+      width: 100vw;
+      height: 800vh;
+      top: 0;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <a class='back' href='/'>
+    &larr; Back to demos
+  </a>
+
+  <div class='content'>
+    <h1> This Is an Example of Loading a Model With Sketchfab's Viewer API </h1>
+    <p>
+      Amet id elit et labore cillum elit sit deserunt do reprehenderit occaecat. Enim ipsum sit do sunt aliqua in est.
+      Exercitation consectetur est anim excepteur dolor. Sit qui deserunt proident excepteur aliquip sunt esse ullamco
+      ex ipsum Lorem minim consectetur. Dolor nostrud amet ad irure qui ea. Fugiat cupidatat anim aliqua duis cupidatat
+      cupidatat nisi.
+    </p>
+    <p>
+      Occaecat eu magna id aliqua. Amet cupidatat officia enim eu sunt pariatur tempor consequat culpa ullamco proident.
+      In voluptate ad sit enim ipsum dolore. Aliquip laboris ea non ex incididunt tempor. Ad incididunt esse duis
+      occaecat proident nostrud. Minim non est proident consequat excepteur nulla ad esse exercitation amet id.
+    </p>
+    <p>
+      Dolor consectetur sint excepteur officia quis do mollit commodo deserunt dolor adipisicing. Minim adipisicing
+      aliqua ipsum voluptate elit amet do do ullamco Lorem Lorem consectetur. Amet cillum do laboris nulla.
+    </p>
+  </div>
+
+  <div class='scene'>
+    <div class='iframe-wrapper'>
+      <iframe src="" id="api-frame" allow="autoplay; fullscreen; vr" allowvr allowfullscreen mozallowfullscreen="true"
+        webkitallowfullscreen="true"></iframe>
+      <div class='caption'>
+        <h2></h2>
+        <p></p>
+      </div>
+    </div>
+    <div class='scroller'></div>
+  </div>
+
+  <div class='content'>
+    <p>
+      Amet id elit et labore cillum elit sit deserunt do reprehenderit occaecat. Enim ipsum sit do sunt aliqua in est.
+      Exercitation consectetur est anim excepteur dolor. Sit qui deserunt proident excepteur aliquip sunt esse ullamco
+      ex ipsum Lorem minim consectetur. Dolor nostrud amet ad irure qui ea. Fugiat cupidatat anim aliqua duis cupidatat
+      cupidatat nisi.
+    </p>
+    <p>
+      Occaecat eu magna id aliqua. Amet cupidatat officia enim eu sunt pariatur tempor consequat culpa ullamco proident.
+      In voluptate ad sit enim ipsum dolore. Aliquip laboris ea non ex incididunt tempor. Ad incididunt esse duis
+      occaecat proident nostrud. Minim non est proident consequat excepteur nulla ad esse exercitation amet id.
+    </p>
+    <p>
+      Dolor consectetur sint excepteur officia quis do mollit commodo deserunt dolor adipisicing. Minim adipisicing
+      aliqua ipsum voluptate elit amet do do ullamco Lorem Lorem consectetur. Amet cillum do laboris nulla.
+    </p>
+    <p>
+      Amet id elit et labore cillum elit sit deserunt do reprehenderit occaecat. Enim ipsum sit do sunt aliqua in est.
+      Exercitation consectetur est anim excepteur dolor. Sit qui deserunt proident excepteur aliquip sunt esse ullamco
+      ex ipsum Lorem minim consectetur. Dolor nostrud amet ad irure qui ea. Fugiat cupidatat anim aliqua duis cupidatat
+      cupidatat nisi.
+    </p>
+    <p>
+      Occaecat eu magna id aliqua. Amet cupidatat officia enim eu sunt pariatur tempor consequat culpa ullamco proident.
+      In voluptate ad sit enim ipsum dolore. Aliquip laboris ea non ex incididunt tempor. Ad incididunt esse duis
+      occaecat proident nostrud. Minim non est proident consequat excepteur nulla ad esse exercitation amet id.
+    </p>
+    <p>
+      Dolor consectetur sint excepteur officia quis do mollit commodo deserunt dolor adipisicing. Minim adipisicing
+      aliqua ipsum voluptate elit amet do do ullamco Lorem Lorem consectetur. Amet cillum do laboris nulla.
+    </p>
+  </div>
+
+
+
+  <script type="text/javascript">
+
+    const iframe = document.getElementById('api-frame')
+    const scrollElement = document.querySelector('.scroller')
+    const caption = document.querySelector('.caption')
+    const uid = 'cd87f2ad57ca41b6acbcca9a2f343c7e'
+    const client = new Sketchfab(iframe)
+    gsap.registerPlugin(ScrollTrigger)
+
+
+    function initAnimation(api) {
+
+      api.getAnnotationList((err, annotations) => {
+        const values = {
+          ex: annotations[0].eye[0],
+          ey: annotations[0].eye[1],
+          ez: annotations[0].eye[2],
+          tx: annotations[0].target[0],
+          ty: annotations[0].target[1],
+          tz: annotations[0].target[2],
+          index: 0,
+        }
+        api.setCameraLookAt(annotations[0].eye, annotations[0].target, 0)
+        caption.querySelector('h2').innerText = annotations[0].name
+        caption.querySelector('p').innerText = annotations[0].content.raw
+
+        const timeline = gsap.timeline({})
+
+        annotations.forEach((annotation, i) => {
+          if (i !== 0) {
+            api.hideAnnotation(i)
+            const e = annotation.eye
+            const t = annotation.target
+            timeline.to(values, {
+              ex: e[0],
+              ey: e[1],
+              ez: e[2],
+              tx: t[0],
+              ty: t[1],
+              tz: t[2],
+              index: i,
+              duration: 1,
+            })
+          }
+        })
+
+        let displayed = true
+
+        ScrollTrigger.create({
+          trigger: scrollElement,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: true,
+          animation: timeline,
+          toggleActions: "play none reverse none",
+          onUpdate: self => {
+            const currentIndex = self.direction === 1 ? Math.floor(values.index) : Math.ceil(values.index)
+            caption.querySelector('h2').innerText = annotations[currentIndex].name
+            caption.querySelector('p').innerText = annotations[currentIndex].content.raw
+            api.setCameraLookAt([values.ex, values.ey, values.ez], [values.tx, values.ty, values.tz], 0)
+          },
+        })
+
+      })
+    }
+
+    client.init(uid, {
+      success: function onSuccess(api) {
+        api.start();
+        api.addEventListener('viewerready', function () {
+          console.log('viewerready')
+          initAnimation(api)
+        });
+      },
+      error: function onError() {
+        console.log('Viewer error');
+      },
+      animation_autoplay: 0,
+      camera: 0,
+      autostart: 1,
+      ui_controls: 0,
+      ui_inspector: 0,
+      scrollwheel: 0,
+      ui_stop: 0,
+      double_click: 0,
+      ui_hint: 0,
+      annotations_visible: 0,
+    });
+
+
+  </script>
+</body>
+
+</html>

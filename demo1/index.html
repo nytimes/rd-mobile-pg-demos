@@ -1,0 +1,137 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Living Room: Model Viewer</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-weight: 100;
+      font-family: Helvetica;
+      background-color: black;
+      color: white;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 640px;
+      margin: 4rem auto;
+      box-sizing: border-box;
+      padding: 0 2rem;
+    }
+
+    .content p {
+      font-size: 1.2rem;
+      line-height: 1.4;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+      margin-top: 2rem;
+      line-height: 1.2;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .back {
+      color: inherit;
+      text-decoration: none;
+      margin: 2rem;
+      display: block;
+    }
+
+    .scene {
+      width: 100vw;
+      height: 70vh;
+    }
+    
+    model-viewer {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <a class='back' href='/'>
+    &larr; Back to demos
+  </a>
+
+  <div class='content'>
+    <h1> This Is an Example of Loading a Model With Model-Viewer </h1>
+    <p>
+      Amet id elit et labore cillum elit sit deserunt do reprehenderit occaecat. Enim ipsum sit do sunt aliqua in est.
+      Exercitation consectetur est anim excepteur dolor. Sit qui deserunt proident excepteur aliquip sunt esse ullamco
+      ex ipsum Lorem minim consectetur. Dolor nostrud amet ad irure qui ea. Fugiat cupidatat anim aliqua duis cupidatat
+      cupidatat nisi.
+    </p>
+    <p>
+      Occaecat eu magna id aliqua. Amet cupidatat officia enim eu sunt pariatur tempor consequat culpa ullamco proident.
+      In voluptate ad sit enim ipsum dolore. Aliquip laboris ea non ex incididunt tempor. Ad incididunt esse duis
+      occaecat proident nostrud. Minim non est proident consequat excepteur nulla ad esse exercitation amet id.
+    </p>
+    <p>
+      Dolor consectetur sint excepteur officia quis do mollit commodo deserunt dolor adipisicing. Minim adipisicing
+      aliqua ipsum voluptate elit amet do do ullamco Lorem Lorem consectetur. Amet cillum do laboris nulla.
+    </p>
+    <p>
+      Amet id elit et labore cillum elit sit deserunt do reprehenderit occaecat. Enim ipsum sit do sunt aliqua in est.
+      Exercitation consectetur est anim excepteur dolor. Sit qui deserunt proident excepteur aliquip sunt esse ullamco
+      ex ipsum Lorem minim consectetur. Dolor nostrud amet ad irure qui ea. Fugiat cupidatat anim aliqua duis cupidatat
+      cupidatat nisi.
+    </p>
+  </div>
+
+  <div class='scene'>
+    <model-viewer 
+      src="assets/0716_storefront_1.glb" 
+      alt="A 3D model of a storefront"
+      exposure="1" 
+      shadow-intensity="10" 
+      shadow-softness="1" 
+      camera-controls 
+      camera-target="-0.7m 2m -20m" 
+      min-camera-orbit="-2deg 90deg 25.26m" 
+      max-camera-orbit="2deg 94deg auto" 
+      min-field-of-view="55deg" 
+      max-field-of-view="75deg"
+      disable-zoom
+    >
+    </model-viewer>
+  </div>
+
+  <div class='content'>
+    <p>
+      Amet id elit et labore cillum elit sit deserunt do reprehenderit occaecat. Enim ipsum sit do sunt aliqua in est.
+      Exercitation consectetur est anim excepteur dolor. Sit qui deserunt proident excepteur aliquip sunt esse ullamco
+      ex ipsum Lorem minim consectetur. Dolor nostrud amet ad irure qui ea. Fugiat cupidatat anim aliqua duis cupidatat
+      cupidatat nisi.
+    </p>
+    <p>
+      Occaecat eu magna id aliqua. Amet cupidatat officia enim eu sunt pariatur tempor consequat culpa ullamco proident.
+      In voluptate ad sit enim ipsum dolore. Aliquip laboris ea non ex incididunt tempor. Ad incididunt esse duis
+      occaecat proident nostrud. Minim non est proident consequat excepteur nulla ad esse exercitation amet id.
+    </p>
+    <p>
+      Dolor consectetur sint excepteur officia quis do mollit commodo deserunt dolor adipisicing. Minim adipisicing
+      aliqua ipsum voluptate elit amet do do ullamco Lorem Lorem consectetur. Amet cillum do laboris nulla.
+    </p>
+    <p>
+      Amet id elit et labore cillum elit sit deserunt do reprehenderit occaecat. Enim ipsum sit do sunt aliqua in est.
+      Exercitation consectetur est anim excepteur dolor. Sit qui deserunt proident excepteur aliquip sunt esse ullamco
+      ex ipsum Lorem minim consectetur. Dolor nostrud amet ad irure qui ea. Fugiat cupidatat anim aliqua duis cupidatat
+      cupidatat nisi.
+    </p>
+  </div>
+
+</body>
+
+</html>
