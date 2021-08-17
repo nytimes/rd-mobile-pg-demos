@@ -17,42 +17,18 @@ canvasParent.appendChild(renderer.domElement)
 
 const loader = new GLTFLoader()
 const dracoLoader = new DRACOLoader()
-// https://github.com/mrdoob/three.js/pull/21654 - skypack+draco issues
 dracoLoader.setDecoderPath('https://unpkg.com/three/examples/js/libs/draco/')
 loader.setDRACOLoader(dracoLoader)
 
 const rig = new CameraRig(camera, scene)
-let controls
+let scrollControls, threeDOFControls
 
-const controls3dof = new ThreeDOFControls(rig, {
-  panFactor: Math.PI / 10,
-  tiltFactor: Math.PI / 10,
-  truckFactor: 0,
-  pedestalFactor: 0,
-})
-
-function loadAsset(asset) {
-  return new Promise( (resolve, reject) => {
-    loader.load(asset, resolve, undefined, reject)
-  })
-}
-
-Promise.all([loadAsset('./assets/0731_ALLEY_1M_6x2K_D_JP100.glb'), loadAsset('./assets/0731_ANIM_CAM_001.glb')])
-.then( assets => {
-  const [model, camera] = assets
-  model.scene.traverse( child => {
-    if(child.isMesh) {
-      const map = child.material.map
-      child.material = new MeshBasicMaterial({map})
-    }
-  })
-  loading.style.display = 'none'
-  scene.add(model.scene)
+function initializeControls(camera) {
   rig.setAnimationClip(camera.animations[0], 'translation_null', 'rotation_null')
   rig.setAnimationTime(0)
-  controls = new ScrollControls(rig, { 
+  scrollControls = new ScrollControls(rig, { 
     scrollElement, 
-    dampingFactor: 1,
+    dampingFactor: 0.5,
     startOffset: '-50vh',
     endOffset: '-50vh',
     scrollActions: [
@@ -76,8 +52,34 @@ Promise.all([loadAsset('./assets/0731_ALLEY_1M_6x2K_D_JP100.glb'), loadAsset('./
   function transitionBottom(progress) {
     renderer.domElement.style.opacity = 1 - progress
   }
-  controls.enable()
-  controls3dof.enable()
+
+  threeDOFControls = new ThreeDOFControls(rig, {
+    panFactor: Math.PI / 10,
+    tiltFactor: Math.PI / 10,
+    truckFactor: 0,
+    pedestalFactor: 0,
+  })
+
+  scrollControls.enable()
+  threeDOFControls.enable()
+}
+
+function resetMaterials(model) {
+  model.scene.traverse( child => {
+    if(child.isMesh) {
+      const map = child.material.map
+      child.material = new MeshBasicMaterial({map})
+    }
+  })
+}
+
+Promise.all([loader.loadAsync('./assets/0731_ALLEY_1M_6x2K_D_JP100.glb'), loader.loadAsync('./assets/0731_ANIM_CAM_001.glb')])
+.then( assets => {
+  const [model, camera] = assets
+  resetMaterials(model)
+  initializeControls(camera)
+  scene.add(model.scene)
+  loading.style.display = 'none'
 })
 .catch( e => console.log(e))
 
@@ -85,8 +87,8 @@ Promise.all([loadAsset('./assets/0731_ALLEY_1M_6x2K_D_JP100.glb'), loadAsset('./
 function render(t) {
   window.requestAnimationFrame(render)
   if(rig.hasAnimation) {
-    controls.update(t)
-    controls3dof.update(t)
+    scrollControls.update(t)
+    threeDOFControls.update(t)
   }
   renderer.render(scene, camera)
 }
