@@ -56,7 +56,6 @@ if (searchParams.has('helper')) {
     'Aliquip laboris ea non ex incididunt tempor.',
     'Ad incididunt esse duis occaecat proident nostrud. Minim non est proident consequat excepteur nulla ad esse exercitation amet id.',
     'Dolor consectetur sint excepteur officia quis do mollit commodo deserunt dolor adipisicing. Minim adipisicing aliqua ipsum voluptate elit amet do do ullamco Lorem Lorem consectetur.',
-    'Amet cillum do laboris nulla. Amet id elit et labore cillum elit sit deserunt do reprehenderit occaecat.'
   ]
   const pois = cameraData.pois.map((poi, i) => {
     return {
@@ -66,7 +65,6 @@ if (searchParams.has('helper')) {
       ease: 'power1.in',
     }
   })
-  console.log(pois.length)
   controls = new StoryPointsControls(rig, pois)
   document.querySelector('.next').addEventListener('click', () => controls.nextPOI())
   document.querySelector('.prev').addEventListener('click', () => controls.prevPOI())
