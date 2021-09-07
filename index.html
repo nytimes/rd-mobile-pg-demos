@@ -54,6 +54,14 @@
       box-sizing: border-box;
     }
 
+    .link * {
+      color: gray;
+    }
+
+    .link.active * {
+      color: white;
+    }
+
     .link:hover h2 {
       text-decoration: underline;
     }
@@ -146,7 +154,7 @@
   <main>
     <div class='links'>
 
-      <a class='link' href='demo1'>
+      <a class='link active' href='demo1'>
         <h2>Model Viewer </h2>
         <p> A model loaded with Google's model-viewer, a library for 3d models on a webpage an HTML element </p>
       </a>
@@ -168,7 +176,7 @@
       </a>
     </div>
     <div class='image-wrapper'>
-      <img src='thumbnails/demo1.gif' class='hidden' />
+      <img src='thumbnails/demo1.gif'/>
       <img src='thumbnails/demo2.gif' class='hidden' />
       <img src='thumbnails/demo3.gif' class='hidden' />
       <img src='thumbnails/demo4.gif' class='hidden' />
@@ -177,14 +185,17 @@
 
   <script type='text/javascript'>
     const images = document.querySelectorAll('img')
-    document.querySelectorAll('.link').forEach((el, i) => {
+    const links = document.querySelectorAll('.link')
+    links.forEach((el, i) => {
       el.addEventListener('mouseover', e => {
         images.forEach(i => i.classList.add('hidden'))
         images[i].classList.remove('hidden')
+        links.forEach(i => i.classList.remove('active'))
+        links[i].classList.add('active')
       })
-      el.addEventListener('mouseout', e => {
-        images[i].classList.add('hidden')
-      })
+      // el.addEventListener('mouseout', e => {
+      //   images[i].classList.add('hidden')
+      // })
     })
   </script>
 

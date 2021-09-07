@@ -13,7 +13,7 @@ import {
 } from 'three'
 import { Loader3DTiles } from '@threebird/loader-3d-tiles'
 import { CameraRig, FreeMovementControls, StoryPointsControls, CameraHelper } from '@threebird/controls'
-import cameraData from './camera-control.js'
+import cameraData from './camera-data.js'
 
 const searchParams = new URLSearchParams(window.location.search)
 
