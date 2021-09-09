@@ -11,8 +11,8 @@ import {
   MathUtils,
   MeshBasicMaterial
 } from 'three'
-import { Loader3DTiles } from '@threebird/loader-3d-tiles'
-import { CameraRig, FreeMovementControls, StoryPointsControls, CameraHelper } from '@threebird/controls'
+import { Loader3DTiles } from 'three-loader-3dtiles'
+import { CameraRig, FreeMovementControls, StoryPointsControls, CameraHelper } from 'three-story-controls'
 import cameraData from './camera-data.js'
 
 const searchParams = new URLSearchParams(window.location.search)
@@ -59,8 +59,8 @@ if (searchParams.has('helper')) {
   ]
   const pois = cameraData.pois.map((poi, i) => {
     return {
-      lookAtPosition: new Vector3(...poi.position),
-      lookAtOrientation: new Quaternion(...poi.quaternion),
+      position: new Vector3(...poi.position),
+      quaternion: new Quaternion(...poi.quaternion),
       duration: poi.duration,
       ease: 'power1.in',
     }

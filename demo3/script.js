@@ -1,7 +1,7 @@
 import { Scene, PerspectiveCamera, WebGLRenderer, sRGBEncoding, Color, MeshBasicMaterial } from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
-import { CameraRig, ScrollControls, ThreeDOFControls } from '@threebird/controls'
+import { CameraRig, ScrollControls, ThreeDOFControls } from 'three-story-controls'
 
 const canvasParent = document.querySelector('.canvas-parent')
 const scrollElement = document.querySelector('.scroller')

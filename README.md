@@ -6,7 +6,7 @@ With the support of Online News Association’s Journalism 360 grant, the R&D te
 
 This reposistory contains code for 4 demos:
 
-* Model Viewer: A model loaded with Google's model-viewer, a library for 3d models on a webpage an HTML element
-* Sketchfab: A model loaded with Sketchfab's Viewer API, using annotation points and the GSAP animation library to scroll through a camera path
-* Three.js - Scroll Controls: A GLTF model loaded using Three.js with an imported camera path that’s controlled via scroll
-* Three.js - 3D Tiles: A large model streamed as 3D tiles with preselected points of interests
+* [Model Viewer](https://nytimes.github.io/rd-mobile-pg-demos/demo1/): A model loaded with Google's model-viewer, a library for 3d models on a webpage an HTML element
+* [Sketchfab](https://nytimes.github.io/rd-mobile-pg-demos/demo2/): A model loaded with Sketchfab's Viewer API, using annotation points and the GSAP animation library to scroll through a camera path
+* [Three.js - Scroll Controls](https://nytimes.github.io/rd-mobile-pg-demos/demo3/): A GLTF model loaded using Three.js with an imported camera path that’s controlled via scroll
+* [Three.js - 3D Tiles](https://nytimes.github.io/rd-mobile-pg-demos/demo4/): A large model streamed as 3D tiles with preselected points of interests
