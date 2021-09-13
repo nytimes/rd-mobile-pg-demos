@@ -181,13 +181,17 @@
     const scrollElement = document.querySelector('.scroller')
     const caption = document.querySelector('.caption')
     const uid = 'cd87f2ad57ca41b6acbcca9a2f343c7e'
+
+    // Create a Sketchfab Viewer instance
     const client = new Sketchfab(iframe)
+    // Register the GSAP Scroll plugin
     gsap.registerPlugin(ScrollTrigger)
 
-
+    // This function is called once the viewer has been initialized
     function initAnimation(api) {
-
+      // Get the list of annotation points
       api.getAnnotationList((err, annotations) => {
+        // Setup the first point
         const values = {
           ex: annotations[0].eye[0],
           ey: annotations[0].eye[1],
@@ -201,8 +205,10 @@
         caption.querySelector('h2').innerText = annotations[0].name
         caption.querySelector('p').innerText = annotations[0].content.raw
 
+        // Create a timeline instance. See GSAP documentation for more
         const timeline = gsap.timeline({})
 
+        // Add each annotation point's data to the timeline
         annotations.forEach((annotation, i) => {
           if (i !== 0) {
             api.hideAnnotation(i)
@@ -223,6 +229,7 @@
 
         let displayed = true
 
+        // Setup the ScrollTrigger with the animation timeline
         ScrollTrigger.create({
           trigger: scrollElement,
           start: "top bottom",
@@ -230,6 +237,7 @@
           scrub: true,
           animation: timeline,
           toggleActions: "play none reverse none",
+          // Set the camera look-at position on every update and set the caption text
           onUpdate: self => {
             const currentIndex = self.direction === 1 ? Math.floor(values.index) : Math.ceil(values.index)
             caption.querySelector('h2').innerText = annotations[currentIndex].name
@@ -241,11 +249,11 @@
       })
     }
 
+    // Initialize the viewer
     client.init(uid, {
       success: function onSuccess(api) {
         api.start();
         api.addEventListener('viewerready', function () {
-          console.log('viewerready')
           initAnimation(api)
         });
       },
