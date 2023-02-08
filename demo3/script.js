@@ -19,7 +19,7 @@ canvasParent.appendChild(renderer.domElement)
 // Initialize loaders
 const loader = new GLTFLoader()
 const dracoLoader = new DRACOLoader()
-dracoLoader.setDecoderPath('https://unpkg.com/three/examples/js/libs/draco/')
+dracoLoader.setDecoderPath('https://unpkg.com/three@0.129.0/examples/js/libs/draco/')
 loader.setDRACOLoader(dracoLoader)
 
 // Initialize the CameraRig 
